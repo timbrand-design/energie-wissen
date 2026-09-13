@@ -21,6 +21,9 @@
             <p>
                 Autor: {{ $article->user->name }}
             </p>
+            <a href="{{ route('articles.show', $article) }}">
+    Artikel lesen
+</a>
         </article>
     @empty
         <p>Keine veröffentlichten Artikel vorhanden.</p>
