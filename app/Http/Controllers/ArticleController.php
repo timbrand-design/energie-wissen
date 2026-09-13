@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Article;
+use App\Models\Category;
+use App\Models\User;
 
 class ArticleController extends Controller
 {
@@ -26,17 +29,39 @@ class ArticleController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
-    }
+{
+    $categories = Category::all();
+    $users = User::all();
+
+    return view('articles.create', [
+        'categories' => $categories,
+        'users' => $users,
+    ]);
+}
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+{
+    $validated = $request->validate([
+        'title' => 'required|string|max:255',
+        'excerpt' => 'nullable|string',
+        'content' => 'required|string',
+        'category_id' => 'required|exists:categories,id',
+        'user_id' => 'required|exists:users,id',
+        'is_published' => 'nullable|boolean',
+    ]);
+
+    $validated['slug'] = Str::slug($validated['title']);
+    $validated['is_published'] = $request->boolean('is_published');
+
+    Article::create($validated);
+
+    return redirect()
+        ->route('articles.index')
+        ->with('success', 'Artikel wurde erstellt.');
+}
 
     /**
      * Display the specified resource.
