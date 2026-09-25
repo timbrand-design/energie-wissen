@@ -49,6 +49,20 @@
         </option>
     @endforeach
 </select>
+<br><br>
+
+<label for="user_id">Autor</label>
+
+<select id="user_id" name="user_id">
+    @foreach ($users as $user)
+        <option
+            value="{{ $user->id }}"
+            @selected($article->user_id === $user->id)
+        >
+            {{ $user->name }}
+        </option>
+    @endforeach
+</select>
     </form>
 </body>
 </html>
