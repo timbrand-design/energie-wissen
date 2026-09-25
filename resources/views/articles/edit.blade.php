@@ -27,6 +27,14 @@
             id="excerpt"
             name="excerpt"
         >{{ $article->excerpt }}</textarea>
+        <br><br>
+
+<label for="content">Inhalt</label>
+
+<textarea
+    id="content"
+    name="content"
+>{{ $article->content }}</textarea>
     </form>
 </body>
 </html>
