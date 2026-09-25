@@ -18,6 +18,15 @@
             name="title"
             value="{{ $article->title }}"
         >
+
+        <br><br>
+
+        <label for="excerpt">Kurzbeschreibung</label>
+
+        <textarea
+            id="excerpt"
+            name="excerpt"
+        >{{ $article->excerpt }}</textarea>
     </form>
 </body>
 </html>
