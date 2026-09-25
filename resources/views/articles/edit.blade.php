@@ -7,15 +7,17 @@
 <body>
     <h1>Artikel bearbeiten</h1>
 
-    <p>{{ $article->title }}</p>
+    <form method="POST" action="#">
+        @csrf
 
-    <label for="title">Titel</label>
+        <label for="title">Titel</label>
 
-<input
-    type="text"
-    id="title"
-    name="title"
-    value="{{ $article->title }}"
->
+        <input
+            type="text"
+            id="title"
+            name="title"
+            value="{{ $article->title }}"
+        >
+    </form>
 </body>
 </html>
