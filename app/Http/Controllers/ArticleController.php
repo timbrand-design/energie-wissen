@@ -78,10 +78,17 @@ class ArticleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
-    }
+    public function edit(Article $article)
+{
+    $categories = Category::all();
+    $users = User::all();
+
+    return view('articles.edit', [
+        'article' => $article,
+        'categories' => $categories,
+        'users' => $users,
+    ]);
+}
 
     /**
      * Update the specified resource in storage.

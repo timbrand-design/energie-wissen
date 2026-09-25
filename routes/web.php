@@ -18,3 +18,6 @@ Route::get('/admin/articles/create', [ArticleController::class, 'create'])
 
 Route::post('/admin/articles', [ArticleController::class, 'store'])
     ->name('admin.articles.store');
+
+Route::get('/admin/articles/{article}/edit', [ArticleController::class, 'edit'])
+    ->name('admin.articles.edit');
