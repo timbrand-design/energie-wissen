@@ -63,6 +63,23 @@
         </option>
     @endforeach
 </select>
+<br><br>
+
+<label for="is_published">
+    <input
+        type="checkbox"
+        id="is_published"
+        name="is_published"
+        value="1"
+        @checked($article->is_published)
+    >
+    Veröffentlicht
+</label>
+<br><br>
+
+<button type="submit">
+    Änderungen speichern
+</button>
     </form>
 </body>
 </html>
