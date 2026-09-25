@@ -35,6 +35,20 @@
     id="content"
     name="content"
 >{{ $article->content }}</textarea>
+<br><br>
+
+<label for="category_id">Kategorie</label>
+
+<select id="category_id" name="category_id">
+    @foreach ($categories as $category)
+        <option
+            value="{{ $category->id }}"
+            @selected($article->category_id === $category->id)
+        >
+            {{ $category->name }}
+        </option>
+    @endforeach
+</select>
     </form>
 </body>
 </html>
