@@ -9,6 +9,7 @@
 
     <form method="POST" action="{{ route('admin.articles.update', $article) }}">
         @csrf
+        @method('PUT')
 
         <label for="title">Titel</label>
 

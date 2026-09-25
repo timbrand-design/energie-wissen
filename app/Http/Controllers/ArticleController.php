@@ -93,10 +93,26 @@ class ArticleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    public function update(Request $request, Article $article)
+{
+    $validated = $request->validate([
+        'title' => 'required|string|max:255',
+        'excerpt' => 'nullable|string',
+        'content' => 'required|string',
+        'category_id' => 'required|exists:categories,id',
+        'user_id' => 'required|exists:users,id',
+        'is_published' => 'nullable|boolean',
+    ]);
+
+    $validated['slug'] = Str::slug($validated['title']);
+    $validated['is_published'] = $request->boolean('is_published');
+
+    $article->update($validated);
+
+    return redirect()
+        ->route('articles.show', $article)
+        ->with('success', 'Artikel wurde aktualisiert.');
+}
 
     /**
      * Remove the specified resource from storage.
