@@ -7,7 +7,7 @@
 <body>
     <h1>Artikel bearbeiten</h1>
 
-    <form method="POST" action="#">
+    <form method="POST" action="{{ route('admin.articles.update', $article) }}">
         @csrf
 
         <label for="title">Titel</label>
