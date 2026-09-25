@@ -21,3 +21,6 @@ Route::post('/admin/articles', [ArticleController::class, 'store'])
 
 Route::get('/admin/articles/{article}/edit', [ArticleController::class, 'edit'])
     ->name('admin.articles.edit');
+
+Route::put('/admin/articles/{article}', [ArticleController::class, 'update'])
+    ->name('admin.articles.update');
