@@ -24,3 +24,6 @@ Route::get('/admin/articles/{article}/edit', [ArticleController::class, 'edit'])
 
 Route::put('/admin/articles/{article}', [ArticleController::class, 'update'])
     ->name('admin.articles.update');
+
+Route::delete('/admin/articles/{article}', [ArticleController::class, 'destroy'])
+    ->name('admin.articles.destroy');
