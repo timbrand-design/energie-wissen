@@ -24,6 +24,16 @@ class ArticleController extends Controller
         'articles' => $articles
     ]);
 }
+public function adminIndex()
+{
+    $articles = Article::with(['category', 'user'])
+        ->latest()
+        ->get();
+
+    return view('admin.articles.index', [
+        'articles' => $articles
+    ]);
+}
 
     /**
      * Show the form for creating a new resource.
