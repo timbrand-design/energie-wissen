@@ -17,6 +17,14 @@
     <p>
         Autor: {{ $article->user->name }}
     </p>
+    <form method="POST" action="{{ route('admin.articles.destroy', $article) }}">
+    @csrf
+    @method('DELETE')
+
+    <button type="submit">
+        Artikel löschen
+    </button>
+</form>
 
     <h2>Kommentare</h2>
 
