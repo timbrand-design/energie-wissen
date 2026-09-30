@@ -15,6 +15,10 @@
         @else
             <p>Status: Entwurf</p>
         @endif
+
+        <a href="{{ route('admin.articles.edit', $article) }}">
+    Artikel bearbeiten
+</a>
     </article>
 @empty
     <p>Keine Artikel vorhanden.</p>
