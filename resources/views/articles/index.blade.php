@@ -8,6 +8,10 @@
 <body>
     <h1>Wissensartikel über erneuerbare Energien</h1>
 
+    @if (session('success'))
+    <p>{{ session('success') }}</p>
+@endif
+
     @forelse ($articles as $article)
         <article>
             <h2>{{ $article->title }}</h2>
