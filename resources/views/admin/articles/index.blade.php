@@ -19,6 +19,15 @@
         <a href="{{ route('admin.articles.edit', $article) }}">
     Artikel bearbeiten
 </a>
+
+<form method="POST" action="{{ route('admin.articles.destroy', $article) }}">
+    @csrf
+    @method('DELETE')
+
+    <button type="submit">
+        Artikel löschen
+    </button>
+</form>
     </article>
 @empty
     <p>Keine Artikel vorhanden.</p>
