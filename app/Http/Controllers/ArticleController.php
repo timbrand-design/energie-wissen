@@ -105,6 +105,8 @@ public function adminIndex()
      */
     public function update(Request $request, Article $article)
 {
+    $this->authorize('update', $article);
+
     $validated = $request->validate([
         'title' => 'required|string|max:255',
         'excerpt' => 'nullable|string',
@@ -129,6 +131,7 @@ public function adminIndex()
      */
    public function destroy(Article $article)
 {
+    $this->authorize('delete', $article);
     $article->delete();
 
     return redirect()
