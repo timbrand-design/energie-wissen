@@ -7,6 +7,9 @@
 </head>
 <body>
     <h1>{{ $article->title }}</h1>
+    @if (session('success'))
+    <p>{{ session('success') }}</p>
+@endif
 
     <p>{{ $article->content }}</p>
 
