@@ -36,5 +36,32 @@
     @empty
         <p>Noch keine Kommentare vorhanden.</p>
     @endforelse
+    @auth
+    <h3>Kommentar schreiben</h3>
+
+    <form method="POST" action="{{ route('comments.store', $article) }}">
+        @csrf
+
+        <label for="content">Kommentar</label>
+
+        <br>
+
+        <textarea
+            id="content"
+            name="content"
+            rows="4"
+        ></textarea>
+
+        <br><br>
+
+        <button type="submit">
+            Kommentar speichern
+        </button>
+    </form>
+@else
+    <p>
+        <a href="{{ route('login') }}">Einloggen</a>, um einen Kommentar zu schreiben.
+    </p>
+@endauth
 </body>
 </html>
