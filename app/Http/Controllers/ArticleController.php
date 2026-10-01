@@ -90,6 +90,7 @@ public function adminIndex()
      */
     public function edit(Article $article)
 {
+    $this->authorize('update', $article);
     $categories = Category::all();
     $users = User::all();
 
