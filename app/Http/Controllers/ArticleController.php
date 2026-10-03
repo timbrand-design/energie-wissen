@@ -99,6 +99,9 @@ public function adminIndex()
      */
     public function show(Article $article)
 {
+    if (! $article->is_published) {
+    abort(404);
+}
     $article->load(['category', 'user', 'comments.user']);
 
     return view('articles.show', [
