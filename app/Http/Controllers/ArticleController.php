@@ -13,15 +13,36 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+   public function index(Request $request)
 {
-    $articles = Article::with(['category', 'user'])
-        ->where('is_published', true)
+    $search = $request->input('search');
+    $categoryId = $request->input('category');
+
+    $query = Article::with(['category', 'user'])
+        ->where('is_published', true);
+
+    if ($search) {
+        $query->where(function ($query) use ($search) {
+            $query->where('title', 'like', '%' . $search . '%')
+                ->orWhere('content', 'like', '%' . $search . '%');
+        });
+    }
+
+    if ($categoryId) {
+        $query->where('category_id', $categoryId);
+    }
+
+    $articles = $query
         ->latest()
         ->get();
 
+    $categories = Category::orderBy('name')->get();
+
     return view('articles.index', [
-        'articles' => $articles
+        'articles' => $articles,
+        'categories' => $categories,
+        'search' => $search,
+        'categoryId' => $categoryId,
     ]);
 }
 public function adminIndex()
