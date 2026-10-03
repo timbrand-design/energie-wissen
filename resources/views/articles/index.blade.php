@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Energie-Wissen</title>
-</head>
-<body>
-    <h1>Wissensartikel über erneuerbare Energien</h1>
+@extends('layouts.site')
+
+@section('title', 'Artikel')
+
+@section('content')
+
+<h1 class="mb-8 text-3xl font-bold text-slate-800">
+    Wissensartikel über erneuerbare Energien
+</h1>
 
     <form method="GET" action="{{ route('articles.index') }}">
     <div>
@@ -79,5 +79,4 @@
     @empty
         <p>Keine veröffentlichten Artikel vorhanden.</p>
     @endforelse
-</body>
-</html>
+@endsection

@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>Artikel bearbeiten</title>
-</head>
-<body>
+@extends('layouts.site')
+
+@section('title', 'Artikel bearbeiten')
+
+@section('content')
+
     <h1>Artikel bearbeiten</h1>
 
     <form method="POST" action="{{ route('admin.articles.update', $article) }}">
@@ -82,5 +81,4 @@
     Änderungen speichern
 </button>
     </form>
-</body>
-</html>
+@endsection

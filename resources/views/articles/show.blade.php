@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $article->title }}</title>
-</head>
-<body>
+@extends('layouts.site')
+
+@section('title', $article->title)
+
+@section('content')
+
     <h1>{{ $article->title }}</h1>
     @if (session('success'))
     <p>{{ session('success') }}</p>
@@ -81,5 +79,4 @@
         <a href="{{ route('login') }}">Einloggen</a>, um einen Kommentar zu schreiben.
     </p>
 @endauth
-</body>
-</html>
+@endsection
