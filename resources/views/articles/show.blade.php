@@ -36,6 +36,21 @@
             <strong>{{ $comment->user->name }}:</strong>
             {{ $comment->content }}
         </p>
+@role('admin')
+        @can('delete', $comment)
+    <form
+        method="POST"
+        action="{{ route('comments.destroy', ['article' => $article, 'comment' => $comment]) }}"
+    >
+        @csrf
+        @method('DELETE')
+
+        <button type="submit">
+            Kommentar löschen
+        </button>
+    </form>
+    @endrole
+@endcan
     @empty
         <p>Noch keine Kommentare vorhanden.</p>
     @endforelse

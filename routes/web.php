@@ -17,6 +17,10 @@ Route::post('/articles/{article}/comments', [CommentController::class, 'store'])
     ->middleware('auth')
     ->name('comments.store');
 
+Route::delete('/articles/{article}/comments/{comment}', [CommentController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('comments.destroy');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

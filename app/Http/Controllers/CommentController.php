@@ -22,4 +22,16 @@ class CommentController extends Controller
 
     return back()->with('success', 'Kommentar wurde erstellt.');
 }
+public function destroy(Article $article, Comment $comment)
+{
+    if ($comment->article_id !== $article->id) {
+        abort(404);
+    }
+
+    $this->authorize('delete', $comment);
+
+    $comment->delete();
+
+    return back()->with('success', 'Kommentar wurde gelöscht.');
+}
 }
