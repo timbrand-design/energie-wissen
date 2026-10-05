@@ -3,15 +3,17 @@
 <h1 class="text-3xl font-bold text-slate-900">
     {{ $article->title }}
 </h1>
-    <p>{{ $article->content }}</p>
-
-    <p>
-        Kategorie: {{ $article->category->name }}
+    <p class="text-lg text-slate-700">
+        {{ $article->content }}
     </p>
 
-    <p>
-        Autor: {{ $article->user->name }}
-    </p>
+   <p class="mt-4 text-sm text-slate-600">
+    Kategorie: {{ $article->category->name }}
+</p>
+
+<p class="text-sm text-slate-600">
+    Autor: {{ $article->user->name }}
+</p>
     <form method="POST" action="{{ route('admin.articles.destroy', $article) }}">
     @csrf
     @method('DELETE')
