@@ -56,8 +56,8 @@
 @endif
 
     @forelse ($articles as $article)
-        <article>
-            <h2>{{ $article->title }}</h2>
+<article class="mb-6 rounded-lg bg-white p-6 shadow-sm ring-1 ring-slate-200">        
+        <h2>{{ $article->title }}</h2>
 
             <p>{{ $article->excerpt }}</p>
 
