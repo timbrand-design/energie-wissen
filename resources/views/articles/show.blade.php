@@ -1,7 +1,8 @@
 <x-site-layout>
 
-    <h1>{{ $article->title }}</h1>
-
+<h1 class="text-3xl font-bold text-slate-900">
+    {{ $article->title }}
+</h1>
     <p>{{ $article->content }}</p>
 
     <p>
