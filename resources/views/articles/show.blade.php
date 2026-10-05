@@ -3,6 +3,7 @@
 <h1 class="text-3xl font-bold text-slate-900">
     {{ $article->title }}
 </h1>
+
   <p class="mt-8 whitespace-pre-line text-lg leading-8 text-slate-700">
     {{ $article->content }}
 </p>
@@ -23,8 +24,9 @@
     </button>
 </form>
 
-    <h2>Kommentare</h2>
-
+<h2 class="mt-12 border-t border-slate-200 pt-8 text-2xl font-bold text-slate-900">
+    Kommentare
+</h2>
     @forelse ($article->comments as $comment)
         <p>
             <strong>{{ $comment->user->name }}:</strong>
