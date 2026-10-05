@@ -13,16 +13,22 @@
 <body class="min-h-screen bg-slate-100 text-slate-900">
 
     <header class="border-b border-slate-800 bg-slate-950">
-        <nav>
-           <a href="{{ url('/') }}">
+        <nav class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+           <a
+    href="{{ url('/') }}"
+    class="text-2xl font-bold tracking-wide text-yellow-400"
+>
     Energy Knowledge
 </a>
 
 @isset($menu)
     @foreach ($menu as $item)
-        <a href="{{ $item['link'] }}">
-            {{ $item['label'] }}
-        </a>
+      <a
+    href="{{ $item['link'] }}"
+    class="text-slate-200 transition hover:text-yellow-400"
+>
+    {{ $item['label'] }}
+</a>
     @endforeach
 @else
     <a href="{{ route('articles.index') }}">
