@@ -72,7 +72,10 @@
             <p>
                 Autor: {{ $article->user->name }}
             </p>
-            <a href="{{ route('articles.show', $article) }}">
+            <a
+    href="{{ route('articles.show', $article) }}"
+    class="mt-4 inline-block font-semibold text-blue-700 transition hover:text-blue-900"
+>
     Artikel lesen
 </a>
         </article>
