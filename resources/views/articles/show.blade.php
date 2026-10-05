@@ -28,10 +28,15 @@
     Kommentare
 </h2>
     @forelse ($article->comments as $comment)
-        <p>
-            <strong>{{ $comment->user->name }}:</strong>
-            {{ $comment->content }}
-        </p>
+       <div class="mt-4 rounded-lg bg-white p-4 shadow-sm ring-1 ring-slate-200">
+    <p class="font-semibold text-slate-900">
+        {{ $comment->user->name }}
+    </p>
+
+    <p class="mt-2 text-slate-700">
+        {{ $comment->content }}
+    </p>
+</div>
         @can('delete', $comment)
     <form
         method="POST"
