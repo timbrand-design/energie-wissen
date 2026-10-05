@@ -4,8 +4,11 @@
     Wissensartikel über erneuerbare Energien
 </h1>
 
-    <form method="GET" action="{{ route('articles.index') }}">
-    <div>
+<form
+    method="GET"
+    action="{{ route('articles.index') }}"
+    class="mb-10 flex flex-wrap items-end gap-4 rounded-lg bg-white p-6 shadow-sm ring-1 ring-slate-200"
+>    <div>
         <label for="search">Suche</label>
 
         <input
