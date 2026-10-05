@@ -3,9 +3,9 @@
 <h1 class="text-3xl font-bold text-slate-900">
     {{ $article->title }}
 </h1>
-    <p class="text-lg text-slate-700">
-        {{ $article->content }}
-    </p>
+  <p class="mt-8 whitespace-pre-line text-lg leading-8 text-slate-700">
+    {{ $article->content }}
+</p>
 
    <p class="mt-4 text-sm text-slate-600">
     Kategorie: {{ $article->category->name }}
