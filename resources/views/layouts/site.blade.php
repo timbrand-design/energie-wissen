@@ -12,7 +12,7 @@
 </head>
 <body class="min-h-screen bg-slate-100 text-slate-900">
 
-    <header>
+    <header class="border-b border-slate-800 bg-slate-950">
         <nav>
            <a href="{{ url('/') }}">
     Energy Knowledge
@@ -83,6 +83,18 @@
 
     {{ $slot ?? '' }}
 </main>
+
+<footer class="mt-12 border-t border-slate-300 bg-white">
+    <div class="mx-auto max-w-6xl px-6 py-6 text-sm text-slate-600">
+        <p>
+            &copy; {{ date('Y') }} Energy Knowledge
+        </p>
+
+        <p class="mt-1">
+            Wissen über erneuerbare Energien
+        </p>
+    </div>
+</footer>
 
 </body>
 </html>
