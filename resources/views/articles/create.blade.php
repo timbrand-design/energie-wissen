@@ -1,8 +1,4 @@
-@extends('layouts.site')
-
-@section('title', 'Artikel erstellen')
-
-@section('content')
+<x-site-layout>
 
     <h1>Neuen Artikel erstellen</h1>
 
@@ -65,4 +61,4 @@
 
         <button type="submit">Artikel speichern</button>
     </form>
-@endsection
+</x-site-layout>

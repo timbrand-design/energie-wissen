@@ -1,13 +1,6 @@
-@extends('layouts.site')
-
-@section('title', $article->title)
-
-@section('content')
+<x-site-layout>
 
     <h1>{{ $article->title }}</h1>
-    @if (session('success'))
-    <p>{{ session('success') }}</p>
-@endif
 
     <p>{{ $article->content }}</p>
 
@@ -34,7 +27,6 @@
             <strong>{{ $comment->user->name }}:</strong>
             {{ $comment->content }}
         </p>
-@role('admin')
         @can('delete', $comment)
     <form
         method="POST"
@@ -47,7 +39,6 @@
             Kommentar löschen
         </button>
     </form>
-    @endrole
 @endcan
     @empty
         <p>Noch keine Kommentare vorhanden.</p>
@@ -79,4 +70,4 @@
         <a href="{{ route('login') }}">Einloggen</a>, um einen Kommentar zu schreiben.
     </p>
 @endauth
-@endsection
+</x-site-layout>

@@ -14,13 +14,21 @@
 
     <header>
         <nav>
-            <a href="{{ route('articles.index') }}">
-                Energy Knowledge
-            </a>
+           <a href="{{ url('/') }}">
+    Energy Knowledge
+</a>
 
-            <a href="{{ route('articles.index') }}">
-                Artikel
-            </a>
+@isset($menu)
+    @foreach ($menu as $item)
+        <a href="{{ $item['link'] }}">
+            {{ $item['label'] }}
+        </a>
+    @endforeach
+@else
+    <a href="{{ route('articles.index') }}">
+        Artikel
+    </a>
+@endisset
 
             @auth
                 <a href="{{ route('dashboard') }}">
@@ -70,9 +78,11 @@
         </div>
     @endif
 
-    <main>
-        @yield('content')
-    </main>
+   <main>
+    @yield('content')
+
+    {{ $slot ?? '' }}
+</main>
 
 </body>
 </html>

@@ -1,8 +1,4 @@
-@extends('layouts.site')
-
-@section('title', 'Artikel')
-
-@section('content')
+<x-site-layout>
 
 <h1 class="mb-8 text-3xl font-bold text-slate-800">
     Wissensartikel über erneuerbare Energien
@@ -79,4 +75,4 @@
     @empty
         <p>Keine veröffentlichten Artikel vorhanden.</p>
     @endforelse
-@endsection
+</x-site-layout>

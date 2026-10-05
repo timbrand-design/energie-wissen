@@ -1,8 +1,4 @@
-@extends('layouts.site')
-
-@section('title', 'Artikel bearbeiten')
-
-@section('content')
+<x-site-layout>
 
     <h1>Artikel bearbeiten</h1>
 
@@ -81,4 +77,4 @@
     Änderungen speichern
 </button>
     </form>
-@endsection
+</x-site-layout>
