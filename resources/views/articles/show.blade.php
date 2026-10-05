@@ -54,27 +54,38 @@
         <p>Noch keine Kommentare vorhanden.</p>
     @endforelse
     @auth
-    <h3>Kommentar schreiben</h3>
+    <h3 class="mt-8 text-xl font-semibold text-slate-900">
+    Kommentar schreiben
+</h3>
 
-    <form method="POST" action="{{ route('comments.store', $article) }}">
-        @csrf
+<form
+    method="POST"
+    action="{{ route('comments.store', $article) }}"
+    class="mt-4 max-w-xl"
+>
+    @csrf
 
-        <label for="content">Kommentar</label>
+    <label
+        for="content"
+        class="mb-2 block text-sm font-medium text-slate-700"
+    >
+        Kommentar
+    </label>
 
-        <br>
+    <textarea
+        id="content"
+        name="content"
+        rows="4"
+        class="w-full rounded-md border border-slate-300 bg-white p-3 text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+    ></textarea>
 
-        <textarea
-            id="content"
-            name="content"
-            rows="4"
-        ></textarea>
-
-        <br><br>
-
-        <button type="submit">
-            Kommentar speichern
-        </button>
-    </form>
+    <button
+        type="submit"
+        class="mt-3 rounded-md bg-slate-900 px-4 py-2 font-semibold text-white transition hover:bg-slate-700"
+    >
+        Kommentar speichern
+    </button>
+</form>
 @else
     <p>
         <a href="{{ route('login') }}">Einloggen</a>, um einen Kommentar zu schreiben.
