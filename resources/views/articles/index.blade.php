@@ -60,8 +60,9 @@
 
     @forelse ($articles as $article)
 <article class="mb-6 rounded-lg bg-white p-6 shadow-sm ring-1 ring-slate-200">        
-        <h2>{{ $article->title }}</h2>
-
+<h2 class="text-xl font-semibold text-slate-900">
+    {{ $article->title }}
+</h2>
             <p>{{ $article->excerpt }}</p>
 
             <p>
